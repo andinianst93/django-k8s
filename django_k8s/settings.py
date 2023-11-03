@@ -20,13 +20,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY") == "'django-insecure-79e69p3o$lqx$b&9r=s3g7b1*bu992^b)z20bk$b@jcr6i#(f6'"
+SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = str(os.environ.get("DEBUG")) == "1"
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ["0.0.0.0"]
 
 # Application definition
 
@@ -98,7 +97,7 @@ POSTGRES_READY=str(os.environ.get("POSTGRES_READY")) == "1"
 if DB_IS_AVAIL and POSTGRES_READY:
     DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+        "ENGINE": "django.db.backends.postgresql",
         'NAME': DB_DATABASE,
         'USER': DB_USERNAME,
         'PASSWORD': DB_PASSWORD,
@@ -107,7 +106,6 @@ if DB_IS_AVAIL and POSTGRES_READY:
     }
 }
 
-print(DATABASES)
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 

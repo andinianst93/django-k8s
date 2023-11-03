@@ -2,6 +2,6 @@ django
 gunicorn
 requests
 django-dotenv
-psycopg-binary
+psycopg2-binary
 django-storages
 boto3
